@@ -51,7 +51,7 @@ caruia in varful cozii se afla de fiecare data statiunea cu pretul cel mai mic
 
 ------------------------------Task3----------------------------------------
 	Pentru a crea un echilibru intre complexitatea temporala si cea spatiala
-am mai construit o structura: una care mapeaza fiecare actvitate cu statiunea 
+am mai construit o structura: una care mapeaza fiecare actvitate cu statiunile
 in care se afla. Astfel , pentru taskul in care mi se cere gasirea celui mai
 ieftin loc  cu o anumita activitate care poate fi practicata pentru 10 zile,multimea
 de statiuni ce dispun de o asemenea activitate poate fi gasita in O(1) Am folosit
