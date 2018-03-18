@@ -1,0 +1,60 @@
+============================BACKEND-APPLICATION=====================
+=======================Lazu-Ionut-Razvan============================
+
+--------------------------FISIERE-----------------------------------
+
+	Fisierele de intrare (input.in) au linii scrise dupa urmatorul
+ model : NumeStatiune Oras Pret Numar_Activitati Activitate1 Activitate2
+ ... Data_Inceput Data_Sfarsit 
+ 	Exemplu: Mamaia Constanta 24 3 inot plaja scufundari 1.06 30.08
+
+
+	Fisierul places.in contine locatiile exacte ale fiecarei statiuni dupa
+urmatoarea structura : Tara Judet Oras Statiune
+
+	Fisierul comenzi.in : poate avea 3 tipuri de comenzi(linii):
+-AllInfo , urmat de o statiune , comanda in urma careia se afiseaza
+toate informatiile despre acea statiune.
+-TOP5 urmat de zona:nume_zona ziua_inceperii luna_inceperii ziua_terminarii
+luna_terminarii.
+-10Days urmat de numele activitatii care se cauta.
+
+
+Structuri de date implementate : HASHMAP , ARRAYLIST ,PRIORITY QUEUE
+
+HASHMAP - folosit la taskul 1 pentru retinerea statiunilor si informatiilor
+depsre aceastea. Cheia este numele statiunii.Prin urmare, cand se cer informatii
+despre aceasta statiune, acestea (valoarile mapate) pot fi gasite in O(1)
+
+PRIORITY QUEUE - folosit pentru a sorta intr-un mod eficient statiunile dintr-o 
+anumita tara/judet/oras care pot fi vizitate in perioadele impuse.
+(Eficienta data de Heap Sort implementat intern (O(nlogn)))
+
+ArrayList - Diferite Stocari.
+
+
+--------------------------Task1-------------------------------------
+	Retin aceste informatii intr-un HashMap, deoarece mi s-a 
+parut cea mai eficienta metoda pentru a raspunde primului
+tip de comanda (Afisarea tuturor informatiilor despre un loc).
+Motivul este ca , clientul vrea sa stie toate informatiile despre
+un loc introducand doar numele acestui loc. Prin urmare , o "mapare"
+intre numele unui loc si obiectul care contine informatiile despre acel 
+obiect. De fiecare data cand vreau sa aflu o informatie despre  un loc
+functia Hash va calcula indexul obiectului respectiv si il va gasi
+in timp constant O(1).
+
+-------------------------------Task2---------------------------------
+     Pentru a afla TOP5 introduc toate statiunile intr-un Priority Queue
+asa cum am spus si mai sus.Priority Queueul are un comparator asociat conform
+caruia in varful cozii se afla de fiecare data statiunea cu pretul cel mai mic
+
+------------------------------Task3----------------------------------------
+	Pentru a crea un echilibru intre complexitatea temporala si cea spatiala
+am mai construit o structura: una care mapeaza fiecare actvitate cu statiunea 
+in care se afla. Astfel , pentru taskul in care mi se cere gasirea celui mai
+ieftin loc  cu o anumita activitate care poate fi practicata pentru 10 zile,multimea
+de statiuni ce dispun de o asemenea activitate poate fi gasita in O(1) Am folosit
+din nou HashMap pentru mapare.Activitatile le caut in HashMapul construit la taskul 1.
+Introduc statiunile care se pot practica pentru mai mult de 10 zile intr-un ArrayList 
+pe care, ulterior il sortez conform preturilor.
